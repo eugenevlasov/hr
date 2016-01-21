@@ -1,0 +1,17 @@
+#skill_dialog.modal.fade role='dialog'
+  .modal-dialog.modal-fullscreen
+    .modal-content
+      .modal-header
+        button.close type='button' data-dismiss='modal' aria-label='Close'
+          span aria-hidden='true' &times;
+        h4.modal-title
+          |Навыки кандидата
+      .modal-body
+        -@candidate.skills.each do |s|
+          =render partial: 'skills/skill', locals:  {s: s, parent_id: @candidate.id}
+        =form_for :skills, url: add_skill_to_candidate_path do |f|
+          = hidden_field_tag(:id, @candidate.id)
+          =f.label 'Навыки'
+          =f.select :ids, options_for_select(@skills.collect { |s| [s[:name], s[:id]] }), {} , {class: "form-control", multiple: true, size: 4}
+          =f.submit 'Добавить'
+

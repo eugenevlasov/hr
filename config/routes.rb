@@ -56,4 +56,6 @@ Rails.application.routes.draw do
   resource :candidates
   resource :skills
   resource :vacancies
+  post 'add_skill_to_candidate'=>'candidates#add_skill'
+  post 'remove_skill_from_candidate'=>'candidates#remove_skill'
 end

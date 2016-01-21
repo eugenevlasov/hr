@@ -4,6 +4,7 @@ table.table
     th Имя
     th Ожидаемый уровень дохода
     th Навыки
+    th Статус
     th
   tbody
     -if @candidates.empty?
@@ -14,6 +15,7 @@ table.table
           td =v[:name]
           td =v[:fee]
           td =show_skills(v.skills)
+          td =v.status
           td
             =link_to('Подробнее', edit_candidates_path(id: v))
 
