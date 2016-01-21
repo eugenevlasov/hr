@@ -24,6 +24,7 @@ class CandidatesController < ApplicationController
     skills = Skill.where(id: skill_params)
     @candidate = Candidate.find(params[:id])
     @candidate.skills.delete(skills)
+    render nothing: true
   end
 
   def add_skill
