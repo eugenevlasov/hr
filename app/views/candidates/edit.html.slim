@@ -1,0 +1,16 @@
+=form_for(@candidate, url: candidates_path,html: { method: :put, role: :form}, remote: true) do |f|
+  =hidden_field_tag(:id, @candidate.id)
+  .form-group
+    =f.label :name, "ФИО"
+    =f.text_field :name, class: 'form-control'
+  .form-group
+    =f.label :status, 'Статус'
+    =f.text_area :status, class: 'form-control'
+  .form-group
+    =f.label :fee, 'Ожидаемый уровень дохода'
+    =f.text_area :fee, class: 'form-control'
+  .form-group
+    =f.label :contacts, 'Контакт'
+    =f.text_area :contacts, class: 'form-control'
+  .message
+  =f.submit 'Обновить', class: 'btn btn-default'

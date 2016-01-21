@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Candidate.create(name: 'Петров', fee: 100000)
+Skill.create(name: 'C++')
+Vacancy.create(name: 'Разработчик C++', fee: 100000.0, expire_at: Time.now + 100.days, added_at: Time.now, contact_info: 'me@hr.example.com')

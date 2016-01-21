@@ -1,0 +1,5 @@
+=form_for(@vacancy, url: vacancies_path,html: { role: :form}, remote: true, method: :patch) do |f|
+  =hidden_field_tag(:id, @vacancy.id)
+  =render :partial => 'vacancies/vacancy_field', locals: {f: f}
+  .message
+  = f.submit 'Обновить', class: 'btn btn-default'

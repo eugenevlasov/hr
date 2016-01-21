@@ -1,0 +1,21 @@
+h2 Кандидаты
+table.table
+  thead
+    th Имя
+    th Ожидаемый уровень дохода
+    th Навыки
+    th
+  tbody
+    -if @candidates.empty?
+      td Нет кандидатов
+    -else
+      -@candidates.each do |v|
+        tr
+          td =v[:name]
+          td =v[:fee]
+          td =show_skills(v.skills)
+          td
+            =link_to('Подробнее', edit_candidates_path(id: v))
+
+
+

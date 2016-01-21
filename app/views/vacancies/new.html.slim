@@ -1,0 +1,10 @@
+=form_for(@vacancy, url: vacancies_path,html: { role: :form}) do |f|
+  =hidden_field_tag(:id, @vacancy.id)
+  =render :partial => 'vacancies/vacancy_field', locals: {f: f}
+  .message
+    -if @errors
+      -@errors.try(:each) do |e|
+        .alert-danger.errors
+          =e
+
+  = f.submit 'Добавить', class: 'btn btn-default'

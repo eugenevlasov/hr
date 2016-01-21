@@ -1,0 +1,14 @@
+$('.message').empty();
+$('.message').removeClass('alert-success');
+<%if @errors%>
+  <%@errors.each do |e| %>
+    $('.errors').empty();
+    $('.message').append('<span class="errors alert fade in"><%=escape_javascript(e)%></span>');
+  <%end%>
+<%else%>
+$('.message').html('Запись успешно обновлена');
+$('.message').addClass('alert-success fade in');
+setTimeout(function() {
+  $(".message").alert('close');
+}, 2000);
+<%end%>
