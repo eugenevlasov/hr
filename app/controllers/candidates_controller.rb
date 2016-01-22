@@ -37,7 +37,11 @@ class CandidatesController < ApplicationController
     @candidate.save! if @candidate.changed?
     return redirect_to edit_candidates_path(id: @candidate.id)
   end
-
+  def hunt_vacancies
+    @candidate = Candidate.find(params[:id])
+    @vacancies = Vacancy.vacancies_with_exact_skills(@candidate.skills)
+    @vacancies_fuzzy = Vacancy.vancancies_with_fuzzy_skills(@candidate.skills)
+  end
   private
   def candidate_params
     params.require(:candidate).permit(:name, :contacts, :fee, :status)

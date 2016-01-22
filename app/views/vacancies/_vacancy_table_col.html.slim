@@ -1,0 +1,6 @@
+tr
+  td =v[:name]
+  td =v[:added_at]
+  td =v[:expire_at]
+  td =show_skills(v.skills)
+  td =link_to('Подробнее', edit_vacancies_path(id: v))

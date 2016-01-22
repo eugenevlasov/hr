@@ -7,4 +7,7 @@ module CandidatesHelper
     end
     skills_html.html_safe
   end
+  def show_candidate(candidate)
+    candidate.name
+  end
 end

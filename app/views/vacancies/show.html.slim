@@ -1,21 +1,6 @@
 h2 Вакансии
 =link_to 'Добавить вакансию', new_vacancies_path
-table.table
-  thead
-    th Название
-    th Дата добавления
-    th Действует до
-    th
-  tbody
-    -if @vacancies.empty?
-      td Нет вакансий
-    -else
-       -@vacancies.each do |v|
-         tr
-           td =v[:name]
-           td =v[:added_at]
-           td =v[:expire_at]
-           td =link_to('Подробнее', edit_vacancies_path(id: v))
+=render partial: 'vacancies/vacancy_table', locals: {vacancies: @vacancies}
 
 
 

@@ -1,0 +1,14 @@
+table.table
+  thead
+    th Название
+    th Дата добавления
+    th Уровень дохода
+    th Навыки
+    th Действует до
+    th
+  tbody
+    -if vacancies.empty?
+      td Нет вакансий
+    -else
+      -vacancies.each do |v|
+        =render partial: 'vacancies/vacancy_table_col', locals: {v: v}

@@ -1,0 +1,5 @@
+li.skill.list-inline-item class="skill-item-#{s[:id]}-#{parent_id}"
+  label
+    =s[:name]
+  span.btn.close.remove_skill data-id=s[:id] data-parent-id=parent_id data-skill-name=s[:name]
+    span aria-hidden='true' &times;

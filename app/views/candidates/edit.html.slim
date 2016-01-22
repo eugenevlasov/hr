@@ -20,7 +20,8 @@
     =f.text_area :contacts, class: 'form-control'
   .message
   =f.submit 'Обновить', class: 'btn btn-default'
-=link_to 'Назад', candidates_path, class: 'btn'
+=link_to 'Назад', candidates_path, class: 'btn btn-default'
+=link_to 'Подобрать вакансии', hunt_vacancies_path(id: @candidate)
 =render partial: 'candidates/skill_dialog'
 javascript:
   add_remove_skill_handler("#{remove_skill_from_candidate_path}");
