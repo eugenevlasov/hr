@@ -61,4 +61,5 @@ Rails.application.routes.draw do
   post 'add_skill_to_vacancy'=>'vacancies#add_skill'
   post 'remove_skill_from_vacancy'=>'vacancies#remove_skill'
   get 'hunt_vacancies'=>'candidates#hunt_vacancies'
+  get 'hunt_candidates'=>'vacancies#hunt_candidates'
 end

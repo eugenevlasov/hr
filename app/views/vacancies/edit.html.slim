@@ -3,6 +3,7 @@
   =render :partial => 'vacancies/vacancy_field', locals: {f: f}
   .message
   = f.submit 'Обновить', class: 'btn btn-default'
+=link_to 'Подобрать кандидатов', hunt_candidates_path(id: @vacancy)
 =render partial: 'candidates/skill_dialog', locals: {owned_skills: @vacancy.skills, skills: @skills, parent_id: @vacancy.id, path: add_skill_to_vacancy_path}
 javascript:
   add_remove_skill_handler("#{remove_skill_from_candidate_path}");

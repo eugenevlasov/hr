@@ -1,0 +1,7 @@
+h2
+  =show_vacancy(@vacancy)
+h2 Кандидаты полностью соответсвующие навыкам
+=render partial: 'candidates/candidates_table', locals: {candidates: @candidates}
+
+h2 Кандидаты частично соотвествующие навыкам
+=render partial: 'candidates/candidates_table', locals: {candidates: @candidates_fuzzy}

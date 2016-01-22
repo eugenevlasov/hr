@@ -20,7 +20,11 @@ class VacanciesController < ApplicationController
     @vacancy.skills.delete(skills)
     render nothing: true
   end
-
+  def hunt_candidates
+    @vacancy = Vacancy.find(params[:id])
+    @candidates = Candidate.candidates_with_exact_skills(@vacancy.skills)
+    @candidates_fuzzy= Candidate.candidates_with_fuzzy_skills(@vacancy.skills)
+  end
   def add_skill
     puts skill_params
     skills = Skill.where(id: skill_params)

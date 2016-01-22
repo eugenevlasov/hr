@@ -1,24 +1,6 @@
 h2 Кандидаты
 =link_to 'Добавить кандидата', new_candidates_path, class: 'btn'
-table.table
-  thead
-    th Имя
-    th Ожидаемый уровень дохода
-    th Навыки
-    th Статус
-    th
-  tbody
-    -if @candidates.empty?
-      td Нет кандидатов
-    -else
-      -@candidates.each do |v|
-        tr
-          td =v[:name]
-          td =v[:fee]
-          td =show_skills(v.skills)
-          td =v.status
-          td
-            =link_to('Подробнее', edit_candidates_path(id: v))
+=render partial: 'candidates/candidates_table', locals: {candidates: @candidates}
 
 
 
