@@ -1,23 +1,6 @@
 =form_for(@candidate, url: candidates_path,html: { method: :put, role: :form}, remote: true) do |f|
   =hidden_field_tag(:id, @candidate.id)
-  .form-group
-    =f.label :name, "ФИО"
-    =f.text_field :name, class: 'form-control'
-  .form-group
-    =f.label :status, 'Статус'
-    =f.select :status, options_for_select(@statuses.collect { |s| [s[0].humanize, s[0]] }, selected: @candidate.status), {} , class: "form-control"
-  .form-group
-    =f.label 'Навыки'
-    ul.list-inline
-      -@candidate.skills.each do |s|
-        =render partial: 'skills/skill', locals:  {s: s, parent_id: @candidate.id}
-    a data-toggle='modal' data-target='#skill_dialog' Изменить
-  .form-group
-    =f.label :fee, 'Ожидаемый уровень дохода'
-    =f.text_area :fee, class: 'form-control'
-  .form-group
-    =f.label :contacts, 'Контакт'
-    =f.text_area :contacts, class: 'form-control'
+  =render partial: 'candidates/candidate_fields', locals: {f: f}
   .message
   =f.submit 'Обновить', class: 'btn btn-default'
 =link_to 'Назад', candidates_path, class: 'btn btn-default'

@@ -1,0 +1,5 @@
+=form_for :skills, url: path do |f|
+  = hidden_field_tag(:id, parent_id)
+  =f.label 'Навыки'
+  =f.select :ids, options_for_select(skills.collect { |s| [s[:name], s[:id]] }), {} , {class: "form-control", multiple: true, size: 4}
+  =f.submit 'Добавить'

@@ -1,0 +1,13 @@
+=form_for(@candidate, url: candidates_path,html: { role: :form}) do |f|
+  =hidden_field_tag(:id, @candidate.id)
+  =render partial: 'candidates/candidate_fields', locals: {f: f}
+  .message
+    - if @errors
+      - @errors.try(:each) do |e|
+        .alert-danger.errors
+          = e
+  =f.submit 'Добавить', class: 'btn btn-default'
+  =link_to 'Назад', candidates_path, class: 'btn btn-default'
+  =render partial: 'candidates/skill_dialog', locals: {owned_skills: @candidate.skills, skills: @skills, parent_id: @candidate.id, path: add_skill_to_candidate_path}
+javascript:
+  add_remove_skill_handler("#{remove_skill_from_candidate_path}");

@@ -1,7 +1,7 @@
 h2
   =show_candidate(@candidate)
-h2 Вакансии полностью соответсвующие навыками
+h2 Вакансии полностью соответсвующие навыкам
 =render partial: 'vacancies/vacancy_table', locals: {vacancies: @vacancies}
 
-h2 Вакансии частично соотвествующие навыки
+h2 Вакансии частично соотвествующие навыкам
 =render partial: 'vacancies/vacancy_table', locals: {vacancies: @vacancies_fuzzy}

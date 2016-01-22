@@ -1,22 +1,22 @@
 .form-group
   =f.label :name, "Название"
   =f.text_field :name, class: 'form-control'
-  .form-group
-    =f.label :description, 'Описание'
-    =f.text_area :description, class: 'form-control'
-  .form-group
-    =f.label :fee, 'Уровень дохода'
-    =f.text_area :fee, class: 'form-control'
-  .form-group
-    = f.label 'Навыки'
-    ul.list-inline
-      - @vacancy.skills.each do |s|
-        = render partial: 'skills/skill', locals: {s: s, parent_id: @vacancy.id}
-    a data-toggle='modal' data-target='#skill_dialog' Изменить
-  .form-group
-    =f.label :expire_at, 'Действует до'
-    =f.datetime_field :expire_at, class: 'form-control'
+.form-group
+  =f.label :description, 'Описание'
+  =f.text_area :description, class: 'form-control'
+.form-group
+  =f.label :fee, 'Уровень дохода'
+  =f.text_area :fee, class: 'form-control'
+.form-group
+  = f.label 'Навыки'
+  ul.list-inline
+    - @vacancy.skills.each do |s|
+      = render partial: 'skills/skill', locals: {s: s, parent_id: @vacancy.id}
+  a data-toggle='modal' data-target='#skill_dialog' Изменить
+.form-group
+  =f.label :expire_at, 'Действует до'
+  =f.datetime_field :expire_at, class: 'form-control'
 
-  .form-group
-    =f.label :contact_info, 'Контакт'
-    =f.text_area :contact_info, class: 'form-control'
+.form-group
+  =f.label :contact_info, 'Контакт'
+  =f.text_area :contact_info, class: 'form-control'
