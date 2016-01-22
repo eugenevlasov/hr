@@ -22,6 +22,6 @@
   =f.submit 'Обновить', class: 'btn btn-default'
 =link_to 'Назад', candidates_path, class: 'btn btn-default'
 =link_to 'Подобрать вакансии', hunt_vacancies_path(id: @candidate)
-=render partial: 'candidates/skill_dialog'
+=render partial: 'candidates/skill_dialog', locals: {owned_skills: @candidate.skills, skills: @skills, parent_id: @candidate.id, path: add_skill_to_candidate_path}
 javascript:
   add_remove_skill_handler("#{remove_skill_from_candidate_path}");

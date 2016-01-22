@@ -1,6 +1,8 @@
 h2 Вакансии
 =link_to 'Добавить вакансию', new_vacancies_path
 =render partial: 'vacancies/vacancy_table', locals: {vacancies: @vacancies}
+javascript:
+  add_remove_skill_handler('<%=remove_skills_from_vacancy_path%>');
 
 
 

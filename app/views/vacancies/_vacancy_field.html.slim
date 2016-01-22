@@ -8,6 +8,12 @@
     =f.label :fee, 'Уровень дохода'
     =f.text_area :fee, class: 'form-control'
   .form-group
+    = f.label 'Навыки'
+    ul.list-inline
+      - @vacancy.skills.each do |s|
+        = render partial: 'skills/skill', locals: {s: s, parent_id: @vacancy.id}
+    a data-toggle='modal' data-target='#skill_dialog' Изменить
+  .form-group
     =f.label :expire_at, 'Действует до'
     =f.datetime_field :expire_at, class: 'form-control'
 
